@@ -1,5 +1,5 @@
 const express = require('express')
-const app = express()
+
 const bodyParser = require('body-parser')
 
 const cors = require('cors')
@@ -9,12 +9,13 @@ const mongoose = require('mongoose')
 var Schema = mongoose.Schema;
 
 const routes = require('./router');
-
+const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.use('/', routes);
+
 
 mongoose.connect(process.env.MONGO_URI)
 .then(
