@@ -57,20 +57,7 @@ const dateFromNumber = (date) => {
   return `${year}-${month}-${day}`;
 }
 
-app.use('/api/exercise/new-user', (req, res, next) => {
-  const username = req.body.username
-  User.find({username}, (err, result) => {
-    if (err) {
-      res.send(err);
-    } else {
-      if (result.length === 0) {
-        next();
-      } else {
-        res.send('duplicate username not allowed');
-      }
-    }
-  })
-})
+app.use('/api/exercise/new-user', )
 
 app.use('/api/exercise/log', (req,res,next) => {
   const _id = req.query.userId;
