@@ -1,5 +1,5 @@
 const User = require('./user_model');
-const Exercise = require('./exercise__model');
+const Exercise = require('./exercise_model');
 
 const dateToNumber = (date) => {
   if(date) {

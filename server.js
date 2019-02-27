@@ -8,7 +8,8 @@ const path = require('path');
 const mongoose = require('mongoose')
 var Schema = mongoose.Schema;
 
-const product = require('./router');
+const route = require('./router');
+app.use('/', route);
 
 
 mongoose.connect(process.env.MONGO_URI)
