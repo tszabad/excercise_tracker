@@ -26,3 +26,21 @@ exports.userlog =(req,res,next) => {
     }
   })
 }
+
+exports.exerciselog = (req,res) => {
+  const userId = req.query.userId
+  const from = dateToNumber(req.query.from) || 0;
+  const to = dateToNumber(req.query.to) || 99999999;
+  const limit = (Math.abs(0 - (req.query.limit || 0)));
+  Exercise.find({
+    userId,
+    date: {$gt: from, $lt: to},
+  }, {}, {limit}, (err,result) => {
+    if(err) {
+      res.send(err);
+    } else {
+      res.send(result);
+      console.log(result);
+    }
+  })
+}
