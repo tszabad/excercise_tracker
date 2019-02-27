@@ -6,4 +6,8 @@ const controller = require('./controller');
 
 router.use('/api/exercise/new-user', controller.newuser);
 
+router.use('/api/exercise/log', controller.userlog);
+
+
+
 module.exports = router;

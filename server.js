@@ -59,16 +59,8 @@ const dateFromNumber = (date) => {
 
 
 
-app.use('/api/exercise/log', (req,res,next) => {
-  const _id = req.query.userId;
-  User.findById(_id, (err, result) => {
-    if(err) {
-      res.send('User not found');
-    } else {
-      next();
-    }
-  })
-})
+
+
 
 
 app.get('/api/exercise/log', (req,res) => {

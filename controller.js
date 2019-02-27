@@ -16,4 +16,13 @@ exports.newuser = (req, res, next) => {
   })
 }
 
-exports.
+exports.userlog =(req,res,next) => {
+  const _id = req.query.userId;
+  User.findById(_id, (err, result) => {
+    if(err) {
+      res.send('User not found');
+    } else {
+      next();
+    }
+  })
+}
