@@ -1,7 +1,7 @@
 const User = require('./user_model');
 const Exercise = require('./exercise__model');
 
-expts.newuser = (req, res, next) => {
+exports.newuser = (req, res, next) => {
   const username = req.body.username
   User.find({username}, (err, result) => {
     if (err) {
@@ -15,3 +15,5 @@ expts.newuser = (req, res, next) => {
     }
   })
 }
+
+exports.

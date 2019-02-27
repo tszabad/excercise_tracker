@@ -57,7 +57,7 @@ const dateFromNumber = (date) => {
   return `${year}-${month}-${day}`;
 }
 
-app.use('/api/exercise/new-user', )
+
 
 app.use('/api/exercise/log', (req,res,next) => {
   const _id = req.query.userId;
