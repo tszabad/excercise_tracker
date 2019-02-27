@@ -36,20 +36,7 @@ app.get('/', (req, res) => {
 });
 
 
-const userSchema = new mongoose.Schema(
-  {username: String});
 
-const exerciseSchema = new mongoose.Schema({
-  userId: {type:String, required: true},
-  username: {type: String, required: true},
-  description: {type:String,required: true},
-  duration: {type:Number,required: true},
-  date: Number
-});
-
-const User = mongoose.model('User', userSchema);
-
-const Exercise = mongoose.model('Exercise', exerciseSchema);
 
 const dateToNumber = (date) => {
   if(date) {
