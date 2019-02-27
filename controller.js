@@ -1,6 +1,26 @@
 const User = require('./user_model');
 const Exercise = require('./exercise__model');
 
+const dateToNumber = (date) => {
+  if(date) {
+    const year = date.slice(0,4);
+    const month = date.slice(5,7);
+    const day = date.slice(8);
+    return Number(year + month + day);
+  } else {
+    return null;
+  }
+}
+
+const dateFromNumber = (date) => {
+  let newDate = date.toString();
+  const year = newDate.slice(0,4);
+  const month = newDate.slice(4,6);
+  const day = newDate.slice(6);
+  return `${year}-${month}-${day}`;
+}
+
+
 exports.newuser = (req, res, next) => {
   const username = req.body.username
   User.find({username}, (err, result) => {
@@ -44,3 +64,31 @@ exports.exerciselog = (req,res) => {
     }
   })
 }
+
+
+exports.finduser = (req,res,next) => {
+  const username = req.query.username;
+  
+  User.find({username}, (err, result) => {
+    if(err) {
+      res.send('User not found');
+    } else {
+      next();
+    }
+  })
+}
+
+exports.findusername = (req,res) => {
+ 
+  const username = req.query.username
+  User.find({username}
+      ,(err,result) => {
+    if(err) {
+      res.send(err);
+    } else {
+      res.send(result);
+    }
+  })
+}
+
+newuser

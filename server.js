@@ -38,24 +38,6 @@ app.get('/', (req, res) => {
 
 
 
-const dateToNumber = (date) => {
-  if(date) {
-    const year = date.slice(0,4);
-    const month = date.slice(5,7);
-    const day = date.slice(8);
-    return Number(year + month + day);
-  } else {
-    return null;
-  }
-}
-
-const dateFromNumber = (date) => {
-  let newDate = date.toString();
-  const year = newDate.slice(0,4);
-  const month = newDate.slice(4,6);
-  const day = newDate.slice(6);
-  return `${year}-${month}-${day}`;
-}
 
 
 
@@ -65,42 +47,12 @@ const dateFromNumber = (date) => {
 
 
 
-app.use('/api/exercise/user', (req,res,next) => {
-  const username = req.query.username;
-  
-  User.find({username}, (err, result) => {
-    if(err) {
-      res.send('User not found');
-    } else {
-      next();
-    }
-  })
-})
 
 
-app.get('/api/exercise/user', (req,res) => {
- 
-  const username = req.query.username
-  User.find({username}
-      ,(err,result) => {
-    if(err) {
-      res.send(err);
-    } else {
-      res.send(result);
-    }
-  })
-})
 
-app.post('/api/exercise/new-user', (req,res) => {
-  const username = req.body.username;
-  User.create({username}, (err,user) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.send(user);
-    }
-  })
-})
+
+
+app.post('/api/exercise/new-user', )
 
 app.post('/api/exercise/add', (req,res) => {
   var {userId, description, duration, date} = req.body;

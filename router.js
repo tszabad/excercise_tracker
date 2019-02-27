@@ -7,8 +7,10 @@ const controller = require('./controller');
 router.use('/api/exercise/new-user', controller.newuser);
 
 router.use('/api/exercise/log', controller.userlog);
-app.get('/api/exercise/log', controller.exerciselog);
+router.get('/api/exercise/log', controller.exerciselog);
 
+router.use('/api/exercise/user', controller.finduser);
+router.get('/api/exercise/user', controller.findusername);
 
 
 module.exports = router;
